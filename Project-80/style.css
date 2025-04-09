@@ -1,0 +1,110 @@
+:root{
+  --primary-color: white;
+  --primary-label: black;
+  --secondary-label: white;
+  --white-ball: white;
+  --black-ball: black;
+}
+body{
+  background-color: var(--primary-color);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  overflow: hidden;
+  font-family: sans-serif;
+}
+.container{
+  width: 600px;
+  border-radius: 5px;
+  box-shadow: 3px 3px 10px rgb(116, 115, 115);
+}
+.title{
+  margin-bottom: 20px;
+}
+.header{
+  background-color: black;
+  color: whitesmoke;
+  padding: 30px 20px;
+}
+.header input{
+  width: 94%;
+  padding: 10px 15px;
+  border-radius: 30px;
+  border: none;
+  outline: none;
+  font-size: 14px;
+}
+.user-list{
+  background-color: white;
+  list-style: none;
+  padding: 0;
+  max-height: 400px;
+  overflow-y: auto;
+}
+.user-list li{
+  display: flex;
+  padding: 20px;
+}
+.user-list img{
+  border-radius: 50%;
+  object-fit: cover;
+  height: 60px;
+  width: 60px;
+  margin-right: 20px;
+}
+.user-list .user-info h4{
+  margin: 0 0 10px;
+}
+.user-list .user-info p{
+  font-size: 12px;
+}
+.user-list li:not(:last-of-type){
+  border-bottom: 1px solid #d1cfcf;
+}
+.user-list li.hide{
+  display: none;
+}
+.toggler-container{
+  position: absolute;
+  bottom: 1rem;
+  right: 4rem;
+}
+#switch{
+  background-color: green;
+  width: 0;
+  height: 0;
+  visibility: hidden;
+}
+label{
+  display: block;
+  width: 100px;
+  height: 50px;
+  background-color: var(--primary-label);
+  border-radius: 100px;
+  position: relative;
+  cursor: pointer;
+  transition: 0.5s;
+}
+label::after{
+  content: "";
+  width: 40px;
+  height: 40px;
+  background-color: var(--white-ball);
+  position: absolute;
+  border-radius: 70px;
+  top: 5px;
+  left: 5px;
+  transition: 0.5s;
+}
+#switch:checked + label{
+  background-color: var(--secondary-label);
+}
+#switch:checked + label::after{
+  background-color: var(--black-ball);
+  left: calc(100% - 5px);
+  transform: translateX(-100%);
+}
+label:active:after{
+  width: 60%;
+} 
